@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Тот же таргет, что у Popup: одно хозяйство — один рантайм. -->
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <!-- Набор using-ов задан вручную в GlobalUsings.cs — почему, написано там. -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>LocalWhisper</AssemblyName>
+    <RootNamespace>LocalWhisper</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\..\LocalWhisper.ico</ApplicationIcon>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <!-- WFO0003 требует настраивать DPI через WinForms-свойство. Здесь WinForms
+         только ради иконки в трее, а окна — WPF, которому осведомлённость о DPI
+         даёт именно манифест. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+  </PropertyGroup>
+
+  <!-- Питоновский движок едет рядом с exe: распознавание речи осталось на
+       faster-whisper, и модели на диске лежат в его формате. -->
+  <ItemGroup>
+    <None Include="..\..\engine\**\*.py" LinkBase="engine" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\LocalWhisper.ico" LinkBase="" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

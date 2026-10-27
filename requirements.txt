@@ -1,0 +1,7 @@
+# Всё, что нужно движку (engine/worker.py). Интерфейс, клавиши, трей и вставка
+# текста живут в C# и питона не требуют — отсюда ушли PyQt6, keyboard,
+# pyperclip, Pillow и pywin32.
+faster-whisper>=1.0.0
+sounddevice>=0.4.6
+numpy>=1.24.0
+requests>=2.31.0

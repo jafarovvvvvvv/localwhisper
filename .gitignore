@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Build artifacts
+build/
+dist/
+*.exe
+
+# .NET
+bin/
+obj/
+*.user
+# Собранное приложение: exe плюс engine/ рядом с ним. Пересобирается одной
+# командой, в репозитории ему делать нечего.
+publish/
+
+# Reference / proprietary — do NOT publish Superwhisper binaries & assets
+референс/
+
+# Logs & scratch
+*.log
+err.txt
+out.txt
+
+# Local user data (config holds keys; lives in ~/.localwhisper but ignore anyway)
+.localwhisper/
+config.json
+history.json
